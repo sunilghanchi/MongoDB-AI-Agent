@@ -5,12 +5,11 @@ from langchain_groq import ChatGroq
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 
-llm=ChatGroq(model="llama3-8b-8192",temperature=0.0,api_key="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")
+llm=ChatGroq(model="llama3-8b-8192",temperature=0.0,api_key=st.secrets["token"])
 #mongo client
-username="sunilghanchi24"
-pwd="G3urZVqz929lSkPW"
-client=MongoClient("mongodb+srv://"+urllib.parse.quote(username)+":"+urllib.parse.quote(pwd)+"@first-cluster.te5qmyv.mongodb.net/?retryWrites=true&w=majority&appName=first-cluster")
-
+username=st.secrets["username"]
+pwd=st.secrets["pw"]
+client=st.secrets["client"]
 db=client["sample_airbnb"]
 collection=db["listingsAndReviews"]
 
