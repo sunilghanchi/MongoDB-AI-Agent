@@ -9,7 +9,7 @@ llm=ChatGroq(model="llama3-8b-8192",temperature=0.0,api_key=st.secrets["token"])
 #mongo client
 username=st.secrets["username"]
 pwd=st.secrets["pw"]
-client=st.secrets["client"]
+client=MongoClient("mongodb+srv://"+urllib.parse.quote(username)+":"+urllib.parse.quote(pwd)+"@first-cluster.te5qmyv.mongodb.net/?retryWrites=true&w=majority&appName=first-cluster")
 db=client["sample_airbnb"]
 collection=db["listingsAndReviews"]
 
